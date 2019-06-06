@@ -1,28 +1,29 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Fibonicci {
 
-	public static void main(String[] args) {
-		Scanner s=new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
+	
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Enter the first number");
-		int fristnum=s.nextInt();
+		int fristnum=Integer.parseInt(br.readLine());
 		System.out.println("enter the seconds number");
-		int secondsnum=s.nextInt();
-
-		System.out.println("Enter the End number");
-		int num =s.nextInt();
+		int secondsnum=Integer.parseInt(br.readLine());
 		int nextnum =0;
 		System.out.print(fristnum+","+secondsnum);
-		int i=0;
-		while(i<=num) {
+		
+		for(int i=fristnum;i<=secondsnum;i++) {
 			nextnum=fristnum+secondsnum;
 			System.out.print(","+nextnum);
 			fristnum=secondsnum;
 			secondsnum=nextnum;
-			i++;
 		}
+		br.close();
 		
 
 	}
+	
 
 }
